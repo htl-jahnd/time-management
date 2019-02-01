@@ -4,8 +4,16 @@
   "description": "Application for time management",
   "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Jahn",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "alertifyjs": "^1.11.2",
+    "bootstrap": "^4.2.1",
+    "electron": "^4.0.3",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  }
 }

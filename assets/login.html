@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script> 
+    In login.js file imported-->
+    <!-- include the style -->
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.min.css" />
+    <!-- include a theme -->
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+
+    <link href="style-login.css" rel="stylesheet">
+    <script src="login.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="signIn">
+        <h2 class="title" style="text-align: center">Sign In</h2>
+        <div class="modal-body">
+            <form onsubmit="event.preventDefault(); signIn()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="username" placeholder="Username" required="required"
+                            id="txtSignInUsername">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required="required"
+                            id="txtSignInPassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSignIn">Sign In</button>
+                </div>
+                <p class="hint-text"><a href="#">Forgot Password?</a></p>
+            </form>
+        </div>
+        <div class="modal-footer">Don't have an account? <a href="#" id="btnShowRegister">Create one</a></div>
+    </div>
+
+    <div id="signUp" class="invisible">
+        <h2 class="title" style="text-align: center">Sign Up</h2>
+        <div class="modal-body">
+            <form onsubmit=" event.preventDefault(); signUp()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="username" placeholder="Username" required="required"
+                            id="txtSignUpUsername">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required="required"
+                            id="txtSignUpPassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password"
+                            id="txtSignUpPasswordConfirmation" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnSignUp">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">Already have an account? <a href="#" id="btnShowLogin"> Login</a></div>
+    </div>
+    <div id="loading">
+        <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />
+    </div>
+</body>
+
+</html>
