@@ -17,11 +17,10 @@ function main() {
 
 function createWindow() {
     mainWindow = new Window({
-        file: path.join('assets', 'login.html'),
+        file: path.join('assets','login', 'login.html'),
         height: 400,
         width: 450
     })
-    mainWindow.webContents.openDevTools();
 }
 
 app.on('ready', main)
@@ -40,4 +39,14 @@ app.on('activate', () => {
 
 ipcMain.on('sign-in', (event, usr) => {
     //TODO make db sign-in
+
+    mainWindow = new Window({
+        file: path.join('assets', 'index', 'index.html'),
+            height: 600,
+            width: 700
+    })
+})
+
+ipcMain.on('sign-up', (event, usr) => {
+    //TODO make db sign-up
 })

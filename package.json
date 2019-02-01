@@ -4,8 +4,7 @@
   "description": "Application for time management",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "author": "David Jahn",
   "license": "ISC",

@@ -1,9 +1,9 @@
 const {
     ipcRenderer
 } = require('electron')
-const User = require('../models/user');
+const User = require('../../models/user');
 const alertify = require('alertifyjs');
-window.$ = window.jQuery = require('jquery'); // not sure if you need this at all
+window.$ = window.jQuery = require('jquery'); 
 window.Bootstrap = require('bootstrap');
 
 
@@ -11,13 +11,13 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1) {
-        alert('Script Error: See Browser Console for Detail');
+        alertify.error('Script Error: See Browser Console for Detail');
     } else {
         var message = [
-            'Message: ' + msg,
-            'Error object: ' + JSON.stringify(error)
+            'Message: ' + msg
         ].join(' - ');
         alertify.error(message);
+        console.log(error)
     }
 
     return false;
@@ -27,8 +27,6 @@ $(document).ready(() => {
     $('#loading').hide();
     $('#btnShowLogin').click(showLogin)
     $('#btnShowRegister').click(showRegister)
-    // $('#btnSignUp').click(signUp)
-    // $('#btnSignIn').click(signIn)
 })
 
 function showLogin() {
@@ -41,21 +39,25 @@ function showRegister() {
     $('#signUp').removeClass('invisible')
 }
 
+//used in html
 function signIn() {
     let name = $('#txtSignInUsername').val()
     let pwd = $('#txtSignInPassword').val()
+    if (name === "" || pwd === "")
+        throw new TypeError('Please enter all data.')
     let usr = new User(name, pwd)
     ipcRenderer.send('sign-in', usr)
-    //TODO
     $('#loading').show()
 }
 
+//used in html
 function signUp() {
     let name = $('#txtSignUpUsername').val()
     let pwd = $('#txtSignUpPassword').val()
     let confPwd = $('#txtSignUpPasswordConfirmation').val()
-    console.log(pwd + "  + " + confPwd)
-    if (pwd != confPwd) {
+    if (name === "" || pwd === "" || confPwd === "")
+        throw new TypeError('Please enter all data.')
+    if (pwd !== confPwd) {
         throw new TypeError('Passwords do not match.')
     } else {
         var usr = new User(name, pwd)
